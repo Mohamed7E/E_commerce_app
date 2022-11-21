@@ -9,32 +9,52 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(gridDelegate:
-       SliverGridDelegateWithFixedCrossAxisCount(
-
-        crossAxisCount: 2,
-        childAspectRatio: 3/2,
-        crossAxisSpacing:10  ,
-        mainAxisSpacing: 33,
-       
-       ),
-      itemCount: 4,
-      itemBuilder:(BuildContext  context,int index ){
-        return GridTile(child: 
-        
-        Image.asset("assets/imge/1.jpg")
-        
-        );
-      }),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 22),
+        child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 3 / 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 33,
+            ),
+            itemCount: 4,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () {},
+                child: GridTile(
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: -3,
+                        bottom: -9,
+                        right: 0,
+                        left: 0,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(55),
+                            child: Image.asset("assets/imge/1.jpg")),
+                      ),
+                    ],
+                  ),
+                  footer: GridTileBar(
+                    trailing: IconButton(
+                      color: Color.fromARGB(255, 62, 94, 70),
+                      onPressed: () {},
+                      icon: Icon(Icons.add),
+                    ),
+                    leading: Text("\$ 122"),
+                    title: Text(""),
+                  ),
+                ),
+              );
+            }),
+      ),
       drawer: Drawer(
         child: Column(
-          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            
             Column(
               children: [
-          
-          
                 UserAccountsDrawerHeader(
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -65,16 +85,11 @@ class Home extends StatelessWidget {
                   leading: Icon(Icons.exit_to_app),
                   onTap: () {},
                 ),
-                   
-                   
               ],
             ),
-         
-         
-         Container(
-          margin: EdgeInsets.only(bottom: 10),
-          child: Text("mohamed ibrahim")),
-          
+            Container(
+                margin: EdgeInsets.only(bottom: 10),
+                child: Text("mohamed ibrahim")),
           ],
         ),
       ),
