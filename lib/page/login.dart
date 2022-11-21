@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/shared/custom_textfiled.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -14,23 +15,20 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.all(33.0),
         child: Column(
           children: [
-            SizedBox(height: 64,),
-          TextField(
-            keyboardType: TextInputType.text,
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: "enter your password : ",
-              enabledBorder: OutlineInputBorder(
-                borderSide: Divider.createBorderSide(context),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey),
-              ),
-              filled: true,
-              contentPadding: const EdgeInsets.all(8),
+           const SizedBox(height: 64,),
+            Mytextfiled(
+              textInputTypee :TextInputType.emailAddress ,
+              ispassword: false,
+              hinttext: "Enter email ",
             ),
-          )
-        ]),
+          const SizedBox(height: 33,),
+          Mytextfiled(
+            textInputTypee : TextInputType.text,
+              ispassword: true,
+              hinttext: "enter password",
+          ),
+        ],
+        ),
       ),
     );
   }
