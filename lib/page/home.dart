@@ -3,9 +3,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Item {
+  String imgpath;
+  double price;
 
+  Item({required this.imgpath,required this.price});
+  
+}
+class Home extends StatelessWidget {
+ final List<Item> items =[
+  Item(imgpath:"assets/imge/1.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/3.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/4.jpg" , price: 122.99),
+    Item(imgpath:"assets/imge/8.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/12.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/145.jpg" , price: 122.99),
+    Item(imgpath:"assets/imge/it.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/s.jpg" , price: 122.99),
+  Item(imgpath:"assets/imge/s1.jpg" , price: 122.99),
+ ]; 
+
+  
+
+  Home({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +38,7 @@ class Home extends StatelessWidget {
               crossAxisSpacing: 10,
               mainAxisSpacing: 33,
             ),
-            itemCount: 4,
+            itemCount: items.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {},
@@ -32,7 +52,7 @@ class Home extends StatelessWidget {
                         left: 0,
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(55),
-                            child: Image.asset("assets/imge/1.jpg")),
+                            child: Image.asset(items[index].imgpath)),
                       ),
                     ],
                   ),
