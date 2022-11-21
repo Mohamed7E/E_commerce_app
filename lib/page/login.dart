@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page/register.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 import 'package:flutter_application_1/shared/constants.dart';
 
@@ -58,7 +59,13 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("don't have account",style: TextStyle(fontSize: 18),),
-                  TextButton(onPressed: (){},
+                  TextButton(onPressed: (){
+                    Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Register()),
+                          );
+                  },
                    child: Text("sign up",style: TextStyle(fontSize: 18),))
                 ],
               )

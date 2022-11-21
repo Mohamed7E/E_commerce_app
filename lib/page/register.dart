@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/page/login.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 import 'package:flutter_application_1/shared/constants.dart';
 
@@ -15,7 +16,7 @@ class Register extends StatelessWidget {
           padding: const EdgeInsets.all(33.0),
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment:MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
                   height: 64,
@@ -65,16 +66,27 @@ class Register extends StatelessWidget {
                 const SizedBox(
                   height: 33,
                 ),
-                Row(
+                Row( 
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("don't have account",style: TextStyle(fontSize: 18),),
-                    TextButton(onPressed: (){},
-                     child: Text("sign in",style: TextStyle(fontSize: 18),))
+                    Text(
+                      "don't have account",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                          );
+                        },
+                        child: Text(
+                          "sign in",
+                          style: TextStyle(fontSize: 18),
+                        ))
                   ],
                 )
-              
-              
               ],
             ),
           ),
