@@ -11,37 +11,53 @@ class Home extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Column(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
           children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/imge/12.jpg"),
-                        fit: BoxFit.cover)),
-                currentAccountPicture: CircleAvatar(
-                    radius: 55,
-                    backgroundImage: AssetImage("assets/imge/145.jpg")),
-                accountName: Text("mohamed"),
-                accountEmail: Text("M.ict@gmil.com")),
-            ListTile(
-              title: Text("My Home"),
-              leading: Icon(Icons.home),
-              onTap: () {},
+            
+            Column(
+              children: [
+          
+          
+                UserAccountsDrawerHeader(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/imge/12.jpg"),
+                            fit: BoxFit.cover)),
+                    currentAccountPicture: CircleAvatar(
+                        radius: 55,
+                        backgroundImage: AssetImage("assets/imge/145.jpg")),
+                    accountName: Text("mohamed"),
+                    accountEmail: Text("M.ict@gmil.com")),
+                ListTile(
+                  title: Text("My Home"),
+                  leading: Icon(Icons.home),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text("My products"),
+                  leading: Icon(Icons.add_shopping_cart),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text("About"),
+                  leading: Icon(Icons.help_center),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text("Logout"),
+                  leading: Icon(Icons.exit_to_app),
+                  onTap: () {},
+                ),
+                   
+                   
+              ],
             ),
-            ListTile(
-              title: Text("My products"),
-              leading: Icon(Icons.add_shopping_cart),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text("About"),
-              leading: Icon(Icons.help_center),
-              onTap: () {},
-            ),
-            ListTile(
-              title: Text("Logout"),
-              leading: Icon(Icons.exit_to_app),
-              onTap: () {},
-            ),
+         
+         
+         Container(
+          margin: EdgeInsets.only(bottom: 10),
+          child: Text("mohamed ibrahim")),
+          
           ],
         ),
       ),
