@@ -1,9 +1,14 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/model/item.dart';
+import 'package:flutter_application_1/shared/appbar.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 
 class Detils extends StatefulWidget {
+
+  Item product;
+  Detils({required this.product});
   @override
   State<Detils> createState() => _DetilsState();
 }
@@ -17,34 +22,7 @@ bool isshowmore=true;
     return Scaffold(
    appBar: AppBar(
         actions: [
-          Row(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    child: Text(
-                      "8",
-                      style: TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(211, 164, 255, 193),
-                        shape: BoxShape.circle),
-                  ),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 11.0),
-                child: Text(
-                  "\$ 13",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ],
-          ),
+     Productandprice()
         ],
         backgroundColor: appbargreen,
         title: Text("Detils"),
@@ -54,9 +32,9 @@ bool isshowmore=true;
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset("assets/imge/lt.jpg"),
+            Image.asset(widget.product.imgpath),
             SizedBox(height: 11),
-            Text("\$ 122.9" ,style: TextStyle(fontSize:  20 ),),
+            Text("\$ ${widget.product.price}" ,style: TextStyle(fontSize:  20 ),),
             SizedBox(height: 11),
       
             Row(
