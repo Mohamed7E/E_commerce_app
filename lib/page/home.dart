@@ -16,6 +16,7 @@ class Home extends StatelessWidget {
   const Home({super.key});
   @override
   Widget build(BuildContext context) {
+    final numcartt=Provider.of<Cart>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 22),
@@ -49,15 +50,14 @@ class Home extends StatelessWidget {
                     ],
                   ),
                   footer: GridTileBar(
-                    trailing: Consumer<Cart>(builder: ((context, numcart, child) {
-                      return IconButton(
+                    trailing: IconButton(
                       color: Color.fromARGB(255, 62, 94, 70),
                       onPressed: () {
-                        numcart.add(items[index]);
+                        numcartt.add(items[index]);
                       },
                       icon: Icon(Icons.add),
-                    );
-                    }),),
+                    ),
+                    
                     leading: Text("\$ 122"),
                     title: Text(""),
                   ),
@@ -113,8 +113,8 @@ class Home extends StatelessWidget {
         actions: [
           Row(
             children: [
-              Consumer<Cart>(builder: ((context, numcartt, child) {
-                return      Stack(
+              
+                    Stack(
                 children: [
                   Container(
                     child: Text(
@@ -130,24 +130,24 @@ class Home extends StatelessWidget {
                   IconButton(
                       onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
                 ],
-              );
-              })),
+              ),
+            
           Padding(
                 padding: const EdgeInsets.only(right: 11.0),
                 child: Text(
-                  "\$ 13",
+                  "\$ ${numcartt.pprice}",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
             ],
-          ),
-        ],
-        backgroundColor: appbargreen,
-        title: Consumer<Cart>(builder: (context, tesst, child) {
-          return Text("${tesst}");
-          
-        },),
       ),
-    );
+       
+       
+       
+       ],
+        backgroundColor: appbargreen,
+        title: Text("Home"),
+        ),
+      );
   }
 }
