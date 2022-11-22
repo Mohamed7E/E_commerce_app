@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/proveder/cart.dart';
@@ -18,31 +18,50 @@ class Checkout extends StatelessWidget {
         title: Text("ChockOut"),
         actions: [Productandprice()],
       ),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: 550,
-          child: ListView.builder(
-            padding: const EdgeInsets.all(8),
-           itemCount: numcartt.selectesproducts.length,
-            
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                child: ListTile(
-                   title: Text(numcartt.selectesproducts[index].name),
-                  subtitle: Text("${numcartt.selectesproducts[index].price}-${numcartt.selectesproducts[index].location}"),
-                  leading: CircleAvatar(
-                    backgroundImage: AssetImage(numcartt.selectesproducts[index].imgpath),
-                  ),
-                 
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.remove),
-                  ),
-                ),
-              );
-            },
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            child: SizedBox(
+              height: 550,
+              child: ListView.builder(
+                padding: const EdgeInsets.all(8),
+                itemCount: numcartt.selectesproducts.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: ListTile(
+                      title: Text(numcartt.selectesproducts[index].name),
+                      subtitle: Text(
+                          "${numcartt.selectesproducts[index].price}-${numcartt.selectesproducts[index].location}"),
+                      leading: CircleAvatar(
+                        backgroundImage: AssetImage(
+                            numcartt.selectesproducts[index].imgpath),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          numcartt.delet(numcartt.selectesproducts[index]);
+                        },
+                        icon: Icon(Icons.remove),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-        ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              "pay \$${numcartt.pprice} ",
+              style: TextStyle(fontSize: 19),
+            ),
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(BINpink),
+              padding: MaterialStateProperty.all(EdgeInsets.all(12)),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8))),
+            ),
+          )
+        ],
       ),
     );
   }
