@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/item.dart';
 import 'package:flutter_application_1/page/detils_screen.dart';
 import 'package:flutter_application_1/proveder/cart.dart';
+import 'package:flutter_application_1/shared/appbar.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 import 'package:provider/provider.dart';
 
@@ -111,39 +112,7 @@ class Home extends StatelessWidget {
       ),
       appBar: AppBar(
         actions: [
-          Row(
-            children: [
-              
-                    Stack(
-                children: [
-                  Container(
-                    child: Text(
-                      "${numcartt.selectesproducts.length}",
-                      style: TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(211, 164, 255, 193),
-                        shape: BoxShape.circle),
-                  ),
-                  IconButton(
-                      onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
-                ],
-              ),
-            
-          Padding(
-                padding: const EdgeInsets.only(right: 11.0),
-                child: Text(
-                  "\$ ${numcartt.pprice}",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
-            ],
-      ),
-       
-       
-       
+         Productandprice()
        ],
         backgroundColor: appbargreen,
         title: Text("Home"),
