@@ -49,11 +49,15 @@ class Home extends StatelessWidget {
                     ],
                   ),
                   footer: GridTileBar(
-                    trailing: IconButton(
+                    trailing: Consumer<Cart>(builder: ((context, numcart, child) {
+                      return IconButton(
                       color: Color.fromARGB(255, 62, 94, 70),
-                      onPressed: () {},
+                      onPressed: () {
+                        numcart.add(items[index]);
+                      },
                       icon: Icon(Icons.add),
-                    ),
+                    );
+                    }),),
                     leading: Text("\$ 122"),
                     title: Text(""),
                   ),
@@ -109,11 +113,12 @@ class Home extends StatelessWidget {
         actions: [
           Row(
             children: [
-              Stack(
+              Consumer<Cart>(builder: ((context, numcartt, child) {
+                return      Stack(
                 children: [
                   Container(
                     child: Text(
-                      "8",
+                      "${numcartt.selectesproducts.length}",
                       style: TextStyle(
                           fontSize: 15, color: Color.fromARGB(255, 0, 0, 0)),
                     ),
@@ -125,8 +130,9 @@ class Home extends StatelessWidget {
                   IconButton(
                       onPressed: () {}, icon: Icon(Icons.add_shopping_cart)),
                 ],
-              ),
-              Padding(
+              );
+              })),
+          Padding(
                 padding: const EdgeInsets.only(right: 11.0),
                 child: Text(
                   "\$ 13",
@@ -138,7 +144,7 @@ class Home extends StatelessWidget {
         ],
         backgroundColor: appbargreen,
         title: Consumer<Cart>(builder: (context, tesst, child) {
-          return Text("${tesst.MyNamed}");
+          return Text("${tesst}");
           
         },),
       ),
