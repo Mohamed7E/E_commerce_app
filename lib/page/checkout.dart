@@ -18,27 +18,30 @@ class Checkout extends StatelessWidget {
         title: Text("ChockOut"),
         actions: [Productandprice()],
       ),
-      body: SizedBox(
-        height: 300,
-        child: ListView.builder(
-          padding: const EdgeInsets.all(8),
-         // itemCount: numcartt.selectesproducts.length,
-          itemCount: 3,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: ListTile(
-                subtitle: Text("data"),
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage("assets/imge/4.jpg"),
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: 550,
+          child: ListView.builder(
+            padding: const EdgeInsets.all(8),
+           itemCount: numcartt.selectesproducts.length,
+            
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: ListTile(
+                   title: Text(numcartt.selectesproducts[index].name),
+                  subtitle: Text("${numcartt.selectesproducts[index].price}-${numcartt.selectesproducts[index].location}"),
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage(numcartt.selectesproducts[index].imgpath),
+                  ),
+                 
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.remove),
+                  ),
                 ),
-                title: Text(""),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.remove),
-                ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
