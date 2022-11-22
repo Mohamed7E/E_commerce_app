@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/model/item.dart';
+import 'package:flutter_application_1/page/detils_screen.dart';
 import 'package:flutter_application_1/shared/colors.dart';
 
 
@@ -26,7 +27,11 @@ class Home extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=>Detils(product: items[index ],))
+                   );
+                },
                 child: GridTile(
                   child: Stack(
                     children: [
