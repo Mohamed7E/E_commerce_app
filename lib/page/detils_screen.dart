@@ -99,6 +99,8 @@ class _DetilsState extends State<Detils> {
                 SizedBox(
                   height: 16,
                 ),
+                ],
+              ),
                 SizedBox(
                     width: double.infinity,
                     child: Text(
@@ -125,8 +127,8 @@ class _DetilsState extends State<Detils> {
                         style: TextStyle(fontSize: 19))),
               ],
             )
-          ],
-        ),
+          
+        
       ),
     );
   }

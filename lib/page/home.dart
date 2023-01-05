@@ -60,7 +60,7 @@ class Home extends StatelessWidget {
                       icon: Icon(Icons.add),
                     ),
                     
-                    leading: Text("\$ 122"),
+                    leading: Text("\$ ${items[index].price}"),
                     title: Text(""),
                   ),
                 ),

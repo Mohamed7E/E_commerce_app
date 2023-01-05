@@ -14,7 +14,7 @@ final List<Item> items =[
     Item(name :"hors4",imgpath:"assets/imge/8.jpg" , price: 15422.99),
   Item(name :"hors5",imgpath:"assets/imge/12.jpg" , price: 12962.99),
   Item(name :"hors6",imgpath:"assets/imge/145.jpg" , price: 12142.99),
-    Item(name :"hors7",imgpath:"assets/imge/it.jpg" , price: 12782.99),
+    Item(name :"hors7",imgpath:"assets/imge/lt.jpg" , price: 12782.99),
   Item(name :"hors8",imgpath:"assets/imge/s.jpg" , price: 12942.99),
   Item(name :"hors9",imgpath:"assets/imge/s1.jpg" , price: 12352.99),
  ]; 
